@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
-app.use(cors({origin:'*'}));
+app.use(cors({ origin: "*", methods: ["GET", "POST", "PATCH", "DELETE"] }));
 
 const mongoURI =
   "mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority";
@@ -16,5 +16,5 @@ const uRoutes = require("./userRoutes");
 const bRoutes = require("./blogRoutes");
 app.use(uRoutes);
 app.use(bRoutes);
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Port ${port}`));
