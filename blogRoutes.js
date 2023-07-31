@@ -15,7 +15,7 @@ router.post('/blogs/create', authMiddleware, async (req, res) => {
   }
 });
 
-router.get('/blogs', async (req, res) => {
+router.get('/blogs', authMiddleware, async (req, res) => {
   try {
     const blogs = await Blog.find({});
     res.send(blogs);
