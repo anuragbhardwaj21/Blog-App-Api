@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
-app.use(cors());
+app.use(cors({ origin: "*"}));
 app.options("*", cors());
 const mongoURI =
   "mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority";
