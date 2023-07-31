@@ -15,5 +15,5 @@ const uRoutes = require("./userRoutes");
 const bRoutes = require("./blogRoutes");
 app.use(uRoutes);
 app.use(bRoutes);
-const port = process.env.PORT;
+const port = process.env.PORT || 8000
 app.listen(port, () => console.log(`Port ${port}`));
