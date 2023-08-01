@@ -11,7 +11,6 @@ const allowCrossDomain = (req, res, next) => {
   next();
 };
 app.configure(() => {
-  // CORS middleware
   app.use(allowCrossDomain);
   app.use(app.router);
   app.use(express.static(`public`));
