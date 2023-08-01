@@ -6,7 +6,7 @@ const User = require("./models/User");
 const authMiddleware = require("./authMiddleware");
 const router = express.Router();
 
-router.post("/signup", cors(), async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const { name, email, password, age, phoneNumber } = req.body;
     const hP = await bcrypt.hash(password, 10);

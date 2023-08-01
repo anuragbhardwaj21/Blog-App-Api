@@ -2,21 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
+app.use(cors());
 
-const allowedOrigins = ["http://localhost:3000"];
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg =
-          "The CORS policy for this site does not allow access from the specified Origin.";
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-  })
-);
+const corsOptions = {
+  origin: "*",
+  methods: [],
+  allowedHeaders: [],
+  exposedHeaders: [],
+  credentials: true,
+};
+router.all("./signup", cors(corsOptions));
 
 const mongoURI =
   "mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority";
@@ -28,6 +23,7 @@ mongoose
 app.use(express.json());
 const uRoutes = require("./userRoutes");
 const bRoutes = require("./blogRoutes");
+const router = require("./userRoutes");
 app.use(uRoutes);
 app.use(bRoutes);
 const port = process.env.PORT || 8000;
