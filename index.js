@@ -4,14 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 app.use(cors());
 
-const corsOptions = {
-  origin: "*",
-  methods: [],
-  allowedHeaders: [],
-  exposedHeaders: [],
-  credentials: true,
-};
-router.all("./signup", cors(corsOptions));
+
 
 const mongoURI =
   "mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority";
