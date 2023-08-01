@@ -1,6 +1,5 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
-const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const User = require("./models/User");
 const authMiddleware = require("./authMiddleware");

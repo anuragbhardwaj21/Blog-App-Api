@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
-app.use(cors());
+// app.use(cors());
 
 const allowCrossDomain = (req, res, next) => {
   res.header(`Access-Control-Allow-Origin`, `example.com`);
@@ -11,15 +11,13 @@ const allowCrossDomain = (req, res, next) => {
   next();
 };
 app.configure(() => {
-  app.use(express.bodyParser());
-  app.use(express.cookieParser());
-  app.use(express.session({ secret: `cool beans` }));
-  app.use(express.methodOverride());
   // CORS middleware
   app.use(allowCrossDomain);
   app.use(app.router);
   app.use(express.static(`public`));
 });
+
+
 const mongoURI =
   "mongodb+srv://anurag2361:anuraggg@anurag2361.1pepyj9.mongodb.net/?retryWrites=true&w=majority";
 mongoose
